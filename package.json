@@ -1,0 +1,55 @@
+{
+  "name": "graphin-vue",
+  "version": "0.0.1",
+  "description": "Vue version of @antv/graphin",
+  "main": "./dist/graphin-vue.min",
+  "types": "./dist/index.d",
+  "keywords": ['graph vue graphin'],
+  "scripts": {
+    "start": " node --max_old_space_size=8192 ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --env.NODE_ENV=development --config webpack.config.dev.js",
+    "build": "rimraf dist && node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --env.NODE_ENV=production && tsc --outDir dist",
+    "dev": "node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --env.NODE_ENV=development",
+    "watch": "nodemon --ignore public/ --ignore dist/ --ignore example/ --ignore random.txt -e js,vue,json,ts --exec yarn run dev"
+  },
+  "repository": "https://github.com/zhongbiaodev/graphin-vue.git",
+  "author": "zhongbiaoDev",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@types/lodash": "^4.14.149",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "html-webpack-plugin": "^4.0.4",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.3",
+    "rimraf": "^3.0.2",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@antv/g6": "^3.4.9",
+    "lodash": "^4.17.15",
+    "svg2marker": "^0.1.3",
+    "vue": "^2.6.11",
+    "vue-property-decorator": "^8.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

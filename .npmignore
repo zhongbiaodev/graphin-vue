@@ -1,0 +1,19 @@
+node_modules
+**/node_modules
+
+# lock
+package-lock.json
+
+
+# yarn-lock
+yarn.lock
+
+yarn-error.log
+
+# ignore dist files
+.vscode/
+src
+jest.config.js
+public
+example
+tsconfig.json
