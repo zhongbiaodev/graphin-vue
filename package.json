@@ -4,7 +4,7 @@
   "description": "Vue version of @antv/graphin",
   "main": "./dist/graphin-vue.min",
   "types": "./dist/index.d",
-  "keywords": ['graph vue graphin'],
+  "keywords": ["graph vue graphin"],
   "scripts": {
     "start": " node --max_old_space_size=8192 ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --env.NODE_ENV=development --config webpack.config.dev.js",
     "build": "rimraf dist && node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --env.NODE_ENV=production && tsc --outDir dist",
