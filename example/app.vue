@@ -48,7 +48,7 @@ export default {
           }
       },
       options: {
-        autoPinWithForce: false
+        autoPinWithForce: true
       }
     }
   },
