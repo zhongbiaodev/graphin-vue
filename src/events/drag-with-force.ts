@@ -5,33 +5,25 @@ const dragWithForce = (graphin: Graphin) => {
   const { graph, g6Options } = graphin;
 
   const { autoFollowWithForce = true, autoPinWithForce = true, restartForceOnDrag = true } = g6Options!;
-  let dragStartX = 0;
-  let dragStartY = 0;
-  graph!.on('', () => {
-
-  })
+  let disX = 0; // 拖拽点距离点的中心的x距离
+  let disY = 0; // 拖拽点距离点的中心的y距离
 
   /** 拖拽Force节点：start */
   graph!.on('node:dragstart', (e: G6Event) => {
     if (graphin.forceSimulation) {
       graphin.forceSimulation.stop();
     }
-    dragStartX = e.x
-    dragStartY = e.y
     const nodeModel = e.item.get('model');
-    console.log('nodeModel', nodeModel)
-    console.log('dragstart', e)
+    disX = e.x - nodeModel.x
+    disY = e.y - nodeModel.y
   });
 
   /** 拖拽结束 */
   graph!.on('node:dragend', (e: G6Event) => {
     if (graphin.forceSimulation && autoFollowWithForce && restartForceOnDrag) {
-      console.log('dragend', e)
       const nodeModel = e.item.get('model');
-      // nodeModel.x += (e.x - dragStartX);
-      // nodeModel.y += (e.y - dragStartY);
-      nodeModel.x = e.x
-      nodeModel.y = e.y
+      nodeModel.x = e.x - disX
+      nodeModel.y = e.y - disY
       // 策略：拖拽后就定在拖拽处
       nodeModel.layout = {
         ...nodeModel.layout,
